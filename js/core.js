@@ -615,7 +615,7 @@ function get_total_computer_boost() {
 }
 
 function update_computers_data() {
-	data.computer_strength = 1
+	data.computer_strength = 1.5
 	data.normal_computers = 4
 	for (var comp=1; comp<5; comp++) if (game.computers[comp].is_server) {
 		data.computer_strength += Math.pow(game.computers[comp].level, 0.25)
@@ -632,7 +632,7 @@ function get_words_gain() {
 
 function transfer() {
 	var total = 0
-	var transfer_requirement = 160
+	var transfer_requirement = 100
 	if (game.computers.unlocked) for (var comp=1; comp<5; comp++) {
 		if (game.computers[comp].is_server) transfer_requirement -= 40
 		else total += game.computers[comp].level
