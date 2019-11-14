@@ -763,8 +763,8 @@ function perm_unlock_computers() {
 
 //Stage 1-5: Servers
 function unlock_servers() {
-	if (game.transfer.words < 512) return
-	game.transfer.words -= 512
+	if (game.transfer.words < 256) return
+	game.transfer.words -= 256
 	game.computers.servers_unlocked = true
 	update_tab_on_switch("computers")
 	update_words_display()
