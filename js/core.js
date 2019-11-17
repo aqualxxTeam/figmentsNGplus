@@ -410,7 +410,9 @@ function get_bit_production() {
 	if (game.files.unlocked) {
 		bitProduction * get_total_file_boost()
 	}
+	if (game.transfer.words > 0) {
 	bitProduction * get_words_boost()
+	}
 	return bitProduction
 }
 
