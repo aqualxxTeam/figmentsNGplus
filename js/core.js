@@ -406,7 +406,12 @@ function can_produce(currency) {
 }
 
 function get_bit_production() {
-	return Math.pow(1.5, game.upgrades[0]) * get_total_file_boost() * get_words_boost()
+	var bitProduction = Math.pow(1.5, game.upgrades[0]) 
+	if (game.files.unlocked) {
+		bitProduction * get_total_file_boost()
+	}
+	bitProduction * get_words_boost()
+	return bitProduction
 }
 
 function get_bit_capacity() {
