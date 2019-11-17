@@ -520,14 +520,14 @@ function select_percentage(percentage) {
 }
 
 function get_file_boost(file) {
-	var ret = 1.5
+	var ret = 1
 	if (game.files.unlocked) ret = Math.log10(game.files[file].bits / 256 + 1) / 4 + 1
 	if (game.statistics.times_transfer > 0) ret *= Math.log10(game.files[file].words * 4 + 1) + 1
 	return ret
 }
 
 function get_total_file_boost() {
-	var product = 1
+	var product = 1.5
 	for (var file=1; file<9; file++) product *= get_file_boost(file)
 	return product
 }
