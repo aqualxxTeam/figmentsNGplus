@@ -406,7 +406,10 @@ function can_produce(currency) {
 }
 
 function get_bit_production() {
-	var bitProduction = Math.pow(1.5, game.upgrades[0]) * get_total_file_boost()
+	var bitProduction = Math.pow(1.5, game.upgrades[0])
+	if (game.files.unlocked) {
+		bitProduction * get_total_file_boost()
+	}
 	if (game.transfer.words > 0) {
 		bitProduction * get_words_boost()
 	}
@@ -423,11 +426,14 @@ function lock_bits_production() {
 }
 
 function get_byte_production() {
-	var byteProduction = Math.pow(1.5, game.upgrades[2]) * get_total_file_boost()
+	var byteProduction = Math.pow(1.5, game.upgrades[2])
+	if (game.files.unlocked) {
+		byteProduction * get_total_file_boost()
+	}
 	if (game.transfer.words > 0) {
 		byteProduction * get_words_boost()
 	}
-	return byteProduction * 0.5
+	return 0.5 * byteProduction 
 }
 
 function update_upgrade(id) {
